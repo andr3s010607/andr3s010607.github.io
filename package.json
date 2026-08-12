@@ -1,25 +1,19 @@
 {
-  "name": "zenix",
-  "description": "A high-performance Astro 6 SaaS theme by Farros FR. 100/100 Lighthouse optimized with dark mode, MDX blog, changelog, and search.",
+  "name": "portafolio-bases-de-datos-1",
+  "description": "E-portafolio estático de Geovanny Andres Riaño Perez para Bases de Datos 1.",
   "type": "module",
-  "version": "0.0.1",
-  "license": "MIT",
-  "homepage": "https://zenix.farrosfr.com/",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "https://andr3s010607.github.io/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/farrosfr/zenix.git"
-  },
-  "bugs": {
-    "url": "https://github.com/farrosfr/zenix/issues"
+    "url": "https://github.com/andr3s010607/andr3s010607.github.io.git"
   },
   "keywords": [
     "astro",
-    "astro-theme",
-    "tailwindcss",
-    "saas",
-    "landing-page",
-    "blog",
-    "mdx"
+    "portafolio",
+    "bases-de-datos",
+    "github-pages"
   ],
   "engines": {
     "node": ">=22.12.0"
@@ -28,21 +22,17 @@
     "dev": "astro dev",
     "build": "astro build",
     "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^5.0.6",
     "@fontsource-variable/inter": "^5.2.8",
     "@fontsource-variable/space-grotesk": "^5.2.10",
     "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.3.3",
-    "sharp": "^0.34.5",
     "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.60.0",
-    "@tailwindcss/typography": "^0.5.19"
+    "@playwright/test": "^1.60.0"
   }
 }

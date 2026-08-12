@@ -1,15 +1,17 @@
 import type { APIRoute } from 'astro';
-import { SITE_URL } from '../config';
+import { absoluteUrl } from '../utils/navigation';
 
 export const GET: APIRoute = () => {
-  const sitemapURL = new URL('/sitemap.xml', SITE_URL);
+  const sitemapURL = absoluteUrl('/sitemap.xml');
 
-  return new Response(`User-agent: *
-Allow: /
-Sitemap: ${sitemapURL.href}
-`, {
-    headers: {
-      'Content-Type': 'text/plain; charset=utf-8',
+  return new Response(
+    'User-agent: *\n' +
+      'Allow: /\n' +
+      'Sitemap: ' + sitemapURL + '\n',
+    {
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+      },
     },
-  });
+  );
 };

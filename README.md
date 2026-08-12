@@ -1,134 +1,73 @@
-# Zenix
+# E-portafolio — Bases de Datos 1
 
-Zenix is a polished Astro SaaS theme by [Farros FR](https://farrosfr.com) with responsive landing sections, pricing, blog, changelog, dark mode, search, and MDX content support.
+E-portafolio académico estático de **Geovanny Andres Riaño Perez**. Está construido con Astro y Tailwind CSS; no usa backend, base de datos ni autenticación.
 
-[Live demo](https://zenix.farrosfr.com/) · [Repository](https://github.com/farrosfr/zenix)
+## Ejecutarlo localmente
 
-![alt text](readme-hero.png)
-![alt text](readme-speed.png)
-![alt text](readme-speed-mobile.png)
+Requiere Node.js 22.12 o superior.
 
-## Features
-
-- Astro 6 with static output
-- Tailwind CSS 4 styling
-- Responsive SaaS landing page sections
-- Pricing, FAQ, testimonials, blog, and changelog pages
-- MDX content with reusable callout components
-- Dark and light mode with persisted user preference
-- Command palette search
-- Astro view transitions
-- Playwright UI regression tests
-
-## Quick Start
-
-Create a new Astro project from the GitHub template:
-
-```bash
-npm create astro@latest -- --template farrosfr/zenix
-```
-
-Or clone the repository directly:
-
-```bash
-git clone https://github.com/farrosfr/zenix.git my-saas-site
-cd my-saas-site
+~~~sh
 npm install
 npm run dev
-```
+~~~
 
-Open `http://localhost:4321/` in your browser.
+Abre la dirección que muestra Astro, normalmente http://localhost:4321.
 
-## Commands
+Para generar la versión de producción:
 
-```bash
-npm run dev       # Start the local dev server
-npm run build     # Build the production site
-npm run preview   # Preview the production build
-npm run test:e2e  # Run Playwright regression tests
-```
+~~~sh
+npm run build
+~~~
 
-## Configuration
+El resultado queda en la carpeta **dist/**. Puedes comprobarlo localmente con:
 
-Most site-level settings live in `src/config.ts`:
+~~~sh
+npm run preview
+~~~
 
-```ts
-export const SITE_TITLE = 'Zenix';
-export const SITE_DESCRIPTION = 'High-converting, performance-focused Astro theme for Micro-SaaS products.';
-export const SITE_URL = 'https://zenix.farrosfr.com';
+## Personalizar la presentación
 
-export const SOCIAL_LINKS = {
-  twitter: 'https://twitter.com/farrosfr_',
-  github: 'https://github.com/farrosfr',
-  linkedin: 'https://linkedin.com/in/yourhandle',
-};
-```
+- **Foto:** coloca una imagen llamada **avatar.jpg** en **public/assets/img/**. También se detectan avatar.jpeg, avatar.png, avatar.webp y avatar.avif. Si todavía no existe, se muestra un avatar de reserva sin solicitudes rotas.
+- **Video:** coloca el archivo **presentacion.mp4** en **public/assets/video/**. El reproductor HTML5 aparecerá automáticamente al volver a compilar; mientras tanto se muestra un mensaje de disponibilidad próxima.
+- **Guía del video:** los cuatro textos editables están concentrados en **src/components/Presentation.astro**.
 
-Update these values before publishing your own site.
+## Agregar evidencias
 
-## Content
+No hay que editar un registro ni un componente. Copia cada archivo a la categoría adecuada y vuelve a compilar o publicar:
 
-Blog posts and changelog entries are powered by Astro content collections.
+~~~text
+public/
+  evidencias/
+    modelado/
+    normalizacion/
+    sql/
+    proyecto/
+~~~
 
-- Blog posts: `src/content/blog/`
-- Changelog entries: `src/content/changelog/`
-- Authors: `src/content/authors/`
+El sitio analiza esas carpetas durante el build y crea una tarjeta por archivo. El título se obtiene del nombre de archivo; por ejemplo, modelo-entidad-relacion.pdf se mostrará como “Modelo entidad relacion”.
 
-Example blog post:
+La implementación reconoce y etiqueta PDF, imágenes, SQL, TXT, CSV, JSON, Markdown, documentos Office y ZIP. Las imágenes muestran miniatura; los formatos que el navegador puede abrir incluyen el botón **Ver evidencia** y todos los archivos incluyen **Descargar**. Puedes organizar archivos en subcarpetas si lo necesitas.
 
-```mdx
----
-title: "My First Post"
-description: "A short summary."
-pubDate: 2026-06-01
-author: farros
-tags: ["update", "feature"]
----
+Los archivos .gitkeep ya incluidos solo mantienen las carpetas vacías en Git y no se publican como evidencias.
 
-# Hello World
+## Publicar en GitHub Pages
 
-<Callout type="success" title="Ready">
-  MDX components can be used directly inside content.
-</Callout>
-```
+El flujo de trabajo en **.github/workflows/deploy.yml** publica automáticamente al hacer push a la rama **master**.
 
-## Deployment
+~~~sh
+git add .
+git commit -m "Publicar e-portafolio"
+git push origin master
+~~~
 
-Zenix builds to a static site and can be deployed to Vercel, Netlify, Cloudflare Pages, GitHub Pages, or any static hosting provider.
+La configuración de Astro detecta si el repositorio se publica en la raíz usuario.github.io o bajo usuario.github.io/nombre-repositorio/. Por eso los enlaces, recursos, sitemap, robots y metadatos conservan la ruta correcta en ambos casos.
 
-For production, update `site` in `astro.config.mjs` to match your domain.
+Para simular localmente una publicación en subruta:
 
-### Cloudflare Pages
+~~~powershell
+$env:PUBLIC_SITE_URL='https://usuario.github.io'
+$env:PUBLIC_BASE_PATH='/nombre-repositorio'
+npm run build
+~~~
 
-When importing this GitHub repository into Cloudflare Pages, use:
-
-```text
-Framework preset: Astro
-Build command: npm run build
-Build output directory: dist
-Root directory: /
-Node.js version: 22.12.0 or newer
-```
-
-The repository includes `wrangler.toml` with `pages_build_output_dir = "dist"` for Cloudflare Pages compatibility.
-
-## Theme Submission Notes
-
-This repository is public, uses public npm dependencies, and includes setup documentation for new users. Preview images for the Astro theme directory should be 16:9, at least 1280px wide, and less than 5MB combined.
-
-## Contributing and Collaboration
-
-We welcome contributions and collaboration! Whether you want to fix a bug, add a new feature, or improve documentation, your help is greatly appreciated. 
-
-To contribute:
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/amazing-feature`).
-3. Commit your changes (`git commit -m 'feat: add amazing feature'`).
-4. Push to the branch (`git push origin feature/amazing-feature`).
-5. Open a Pull Request.
-
-If you have an idea for a major change or a new feature, please open an issue first to discuss it with the maintainers. We are also open to collaborations on expanding Zenix for different use cases! Let's build something awesome together.
-
-## License
-
-MIT
+Después de esa prueba, abre una consola nueva o elimina las variables antes de generar el build final.

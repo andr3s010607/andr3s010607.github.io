@@ -1,0 +1,45 @@
+---
+import type { Evidence } from '../utils/evidencias';
+import { resolvePath } from '../utils/navigation';
+import EvidenceIcon from './EvidenceIcon.astro';
+
+interface Props {
+  evidence: Evidence;
+  categoryTitle: string;
+}
+
+const { evidence, categoryTitle } = Astro.props;
+const fileUrl = resolvePath(evidence.url);
+---
+
+<article class="evidence-card">
+  <div class="evidence-preview">
+    {evidence.isImage ? (
+      <img src={fileUrl} alt={'Vista previa de ' + evidence.title} class="h-full w-full object-cover" loading="lazy" />
+    ) : (
+      <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-100 text-primary-700 dark:bg-primary-900/50 dark:text-primary-300">
+        <EvidenceIcon extension={evidence.extension} />
+      </span>
+    )}
+  </div>
+  <div class="flex min-w-0 flex-1 flex-col p-5">
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="evidence-tag">{categoryTitle}</span>
+      <span class="evidence-type">{evidence.type}</span>
+    </div>
+    <h4 class="mt-4 break-words font-heading text-lg font-bold text-slate-900 dark:text-white">{evidence.title}</h4>
+    <div class="mt-5 flex flex-wrap gap-3">
+      {evidence.canPreview && (
+        <a href={fileUrl} target="_blank" rel="noopener noreferrer" class="evidence-action">
+          Ver evidencia
+          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M4 10h11m-4-4 4 4-4 4" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </a>
+      )}
+      <a href={fileUrl} download class="evidence-download">
+        Descargar
+      </a>
+    </div>
+  </div>
+</article>

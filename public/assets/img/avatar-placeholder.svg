@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="title description">
+  <title id="title">Espacio reservado para fotografía de perfil</title>
+  <desc id="description">Ilustración neutral usada hasta agregar una fotografía.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#e0e7ff"/>
+      <stop offset="1" stop-color="#ccfbf1"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="48" fill="url(#background)"/>
+  <circle cx="200" cy="145" r="66" fill="#4338ca" opacity=".88"/>
+  <path d="M77 352c14-87 68-132 123-132s109 45 123 132" fill="#4338ca" opacity=".88"/>
+  <circle cx="314" cy="86" r="22" fill="#14b8a6"/>
+  <path d="M303 86h22M314 75v22" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+</svg>

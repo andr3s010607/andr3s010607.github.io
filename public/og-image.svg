@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">Portafolio Bases de Datos 1</title>
+  <desc id="description">E-portafolio académico de Geovanny Andres Riaño Perez.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#17133f"/>
+      <stop offset=".58" stop-color="#312e81"/>
+      <stop offset="1" stop-color="#0f766e"/>
+    </linearGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0v42" fill="none" stroke="#fff" stroke-opacity=".11"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="1010" cy="120" r="220" fill="#5eead4" opacity=".12"/>
+  <circle cx="126" cy="590" r="250" fill="#a5b4fc" opacity=".13"/>
+  <g transform="translate(100 110)">
+    <rect width="92" height="92" rx="24" fill="#fff" fill-opacity=".15" stroke="#fff" stroke-opacity=".3"/>
+    <text x="46" y="58" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="30" font-weight="700">GR</text>
+    <text x="0" y="178" fill="#ccfbf1" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="4">E-PORTAFOLIO ACADÉMICO</text>
+    <text x="0" y="258" fill="#fff" font-family="Arial, sans-serif" font-size="60" font-weight="700">Geovanny Andres</text>
+    <text x="0" y="328" fill="#fff" font-family="Arial, sans-serif" font-size="60" font-weight="700">Riaño Perez</text>
+    <text x="0" y="410" fill="#e0e7ff" font-family="Arial, sans-serif" font-size="32">Bases de Datos 1</text>
+  </g>
+  <g transform="translate(890 330)" fill="none" stroke="#ccfbf1" stroke-width="3" opacity=".92">
+    <rect width="190" height="92" rx="16"/>
+    <rect x="50" y="126" width="190" height="92" rx="16"/>
+    <path d="M95 92v50m0 0h50m-50 0h50"/>
+    <path d="M145 142v-16"/>
+  </g>
+</svg>

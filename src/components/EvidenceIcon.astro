@@ -1,0 +1,37 @@
+---
+interface Props {
+  extension: string;
+}
+
+const { extension } = Astro.props;
+const isPdf = extension === '.pdf';
+const isSql = extension === '.sql';
+const isArchive = extension === '.zip';
+const isDocument = ['.doc', '.docx', '.ppt', '.pptx', '.xls', '.xlsx'].includes(extension);
+---
+
+<svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+  {isSql ? (
+    <path d="m8.5 8-4 4 4 4M15.5 8l4 4-4 4M13.5 5l-3 14" stroke-linecap="round" stroke-linejoin="round"></path>
+  ) : isArchive ? (
+    <>
+      <path d="M7 3h10v18H7z"></path>
+      <path d="M10 3v4m4-4v4M10 11h4m-4 3h4m-4 3h4" stroke-linecap="round"></path>
+    </>
+  ) : isPdf ? (
+    <>
+      <path d="M6 2.75h8.5L19 7.25v14H6z"></path>
+      <path d="M14.5 2.75v4.5H19M8.5 16h7M8.5 12.5h5" stroke-linecap="round" stroke-linejoin="round"></path>
+    </>
+  ) : isDocument ? (
+    <>
+      <path d="M6 2.75h8.5L19 7.25v14H6z"></path>
+      <path d="M14.5 2.75v4.5H19M8.5 12h7m-7 3.5h7" stroke-linecap="round"></path>
+    </>
+  ) : (
+    <>
+      <path d="M6 2.75h8.5L19 7.25v14H6z"></path>
+      <path d="M14.5 2.75v4.5H19M8.5 12h7m-7 3.5h5" stroke-linecap="round"></path>
+    </>
+  )}
+</svg>

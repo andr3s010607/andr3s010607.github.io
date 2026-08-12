@@ -1,0 +1,99 @@
+---
+import { OWNER_NAME } from '../config';
+import { resolvePath } from '../utils/navigation';
+
+interface Props {
+  avatarUrl?: string;
+  videoUrl?: string;
+}
+
+const { avatarUrl, videoUrl } = Astro.props;
+---
+
+<section id="presentacion" class="scroll-mt-24 border-b border-slate-200 bg-slate-50 py-20 dark:border-slate-800 dark:bg-[#0c0c0f] sm:py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <p class="section-kicker">Actividad inicial</p>
+      <h2 class="section-title mt-4">Presentación</h2>
+      <p class="section-description mt-5">
+        Conoce el propósito de este e-portafolio y los objetivos que orientan mi proceso de aprendizaje.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-8 lg:grid-cols-[minmax(270px,0.72fr)_minmax(0,1.28fr)]">
+      <aside class="portfolio-surface flex flex-col items-center p-7 text-center sm:p-8">
+        <div class="relative h-40 w-40 overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-inner dark:border-slate-700 dark:bg-slate-800">
+          {avatarUrl ? (
+            <img src={resolvePath(avatarUrl)} alt={'Fotografía de ' + OWNER_NAME} class="h-full w-full object-cover" />
+          ) : (
+            <img src={resolvePath('/assets/img/avatar-placeholder.svg')} alt={'Espacio reservado para la fotografía de ' + OWNER_NAME} class="h-full w-full object-cover" />
+          )}
+        </div>
+        <h3 class="mt-6 font-heading text-xl font-bold text-slate-900 dark:text-white">{OWNER_NAME}</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+          Espacio reservado para una fotografía de perfil.
+        </p>
+        <div class="mt-6 w-full rounded-2xl border border-dashed border-primary-300 bg-primary-50/70 px-4 py-4 text-left text-sm leading-6 text-primary-900 dark:border-primary-800 dark:bg-primary-900/30 dark:text-primary-100">
+          <strong class="font-semibold">Para personalizar:</strong> agrega tu foto en
+          <code class="code-inline">public/assets/img/avatar.jpg</code> y vuelve a publicar.
+        </div>
+      </aside>
+
+      <div class="portfolio-surface overflow-hidden">
+        <div class="border-b border-slate-200 px-6 py-5 dark:border-slate-800 sm:px-8">
+          <p class="text-sm font-semibold uppercase tracking-[0.16em] text-primary-700 dark:text-primary-300">Video de presentación</p>
+          <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+            Duración sugerida: entre 60 y 90 segundos.
+          </p>
+        </div>
+        <div class="p-4 sm:p-6">
+          {videoUrl ? (
+            <video class="aspect-video w-full rounded-2xl bg-slate-950 shadow-lg" controls playsinline preload="metadata">
+              <source src={resolvePath(videoUrl)} type="video/mp4" />
+              Tu navegador no admite la reproducción de video HTML5.
+            </video>
+          ) : (
+            <div class="flex aspect-video flex-col items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-100 px-6 text-center dark:border-slate-700 dark:bg-slate-900">
+              <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-100 text-primary-700 dark:bg-primary-900/50 dark:text-primary-300">
+                <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                  <path d="m10 9 5 3-5 3V9Z" fill="currentColor" stroke="none"></path>
+                </svg>
+              </span>
+              <p class="mt-4 font-heading text-lg font-bold text-slate-900 dark:text-white">Video de presentación próximamente disponible.</p>
+              <p class="mt-2 max-w-md text-sm leading-6 text-slate-600 dark:text-slate-400">
+                Agrega el archivo <code class="code-inline">presentacion.mp4</code> en
+                <code class="code-inline">public/assets/video/</code> y aparecerá automáticamente tras el siguiente build.
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 portfolio-surface p-6 sm:p-8">
+      <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-white">Guía para el video</h3>
+      <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+        Usa estas respuestas editables como apoyo para estructurar tu presentación.
+      </p>
+      <ol class="mt-6 grid gap-4 md:grid-cols-2">
+        <li class="guide-item">
+          <span class="guide-number">1</span>
+          <div><strong>¿Cómo me gusta que me llamen?</strong><p>[Escribe aquí tu respuesta.]</p></div>
+        </li>
+        <li class="guide-item">
+          <span class="guide-number">2</span>
+          <div><strong>Algo que me representa</strong><p>[Comparte aquí un interés, hobby, música o deporte.]</p></div>
+        </li>
+        <li class="guide-item">
+          <span class="guide-number">3</span>
+          <div><strong>Bases de Datos 1 en mi formación</strong><p>[Explica aquí cómo puede aportar a tu futuro profesional.]</p></div>
+        </li>
+        <li class="guide-item">
+          <span class="guide-number">4</span>
+          <div><strong>Reto del semestre</strong><p>Este semestre quiero demostrar que… [completa aquí].</p></div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
