@@ -30,13 +30,6 @@ const { avatarUrl, videoUrl } = Astro.props;
           )}
         </div>
         <h3 class="mt-6 font-heading text-xl font-bold text-slate-900 dark:text-white">{OWNER_NAME}</h3>
-        <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
-          Espacio reservado para una fotografía de perfil.
-        </p>
-        <div class="mt-6 w-full rounded-2xl border border-dashed border-primary-300 bg-primary-50/70 px-4 py-4 text-left text-sm leading-6 text-primary-900 dark:border-primary-800 dark:bg-primary-900/30 dark:text-primary-100">
-          <strong class="font-semibold">Para personalizar:</strong> agrega tu foto en
-          <code class="code-inline">public/assets/img/avatar.jpg</code> y vuelve a publicar.
-        </div>
       </aside>
 
       <div class="portfolio-surface overflow-hidden">
@@ -71,29 +64,5 @@ const { avatarUrl, videoUrl } = Astro.props;
       </div>
     </div>
 
-    <div class="mt-8 portfolio-surface p-6 sm:p-8">
-      <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-white">Guía para el video</h3>
-      <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
-        Usa estas respuestas editables como apoyo para estructurar tu presentación.
-      </p>
-      <ol class="mt-6 grid gap-4 md:grid-cols-2">
-        <li class="guide-item">
-          <span class="guide-number">1</span>
-          <div><strong>¿Cómo me gusta que me llamen?</strong><p>[Escribe aquí tu respuesta.]</p></div>
-        </li>
-        <li class="guide-item">
-          <span class="guide-number">2</span>
-          <div><strong>Algo que me representa</strong><p>[Comparte aquí un interés, hobby, música o deporte.]</p></div>
-        </li>
-        <li class="guide-item">
-          <span class="guide-number">3</span>
-          <div><strong>Bases de Datos 1 en mi formación</strong><p>[Explica aquí cómo puede aportar a tu futuro profesional.]</p></div>
-        </li>
-        <li class="guide-item">
-          <span class="guide-number">4</span>
-          <div><strong>Reto del semestre</strong><p>Este semestre quiero demostrar que… [completa aquí].</p></div>
-        </li>
-      </ol>
-    </div>
   </div>
 </section>

@@ -152,22 +152,6 @@
     @apply mx-0.5 rounded-md bg-slate-950/10 px-1.5 py-0.5 font-mono text-[0.8em] text-inherit dark:bg-white/10;
   }
 
-  .guide-item {
-    @apply flex gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-600 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-400;
-  }
-
-  .guide-item strong {
-    @apply block font-semibold text-slate-900 dark:text-slate-100;
-  }
-
-  .guide-item p {
-    @apply mt-1;
-  }
-
-  .guide-number {
-    @apply flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary-100 text-xs font-bold text-primary-700 dark:bg-primary-900/50 dark:text-primary-300;
-  }
-
   .evidence-card {
     @apply flex min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm shadow-slate-950/5 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/70 dark:shadow-black/20;
   }
